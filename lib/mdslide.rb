@@ -4,5 +4,5 @@ $:.unshift(File.dirname(__FILE__)) unless
 require 'mdslide/creator'
 
 module Mdslide
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
 end

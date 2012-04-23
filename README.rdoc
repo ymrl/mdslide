@@ -1,49 +1,54 @@
 = mdslide
 
 * http://github.com/ymrl/mdslide
+* https://rubygems.org/gems/mdslide
 
 == DESCRIPTION:
 
 Mdslide is an slide generator for presentation based on Markdown (RedCarpet). It can convert extended Markdown file to HTML it can show as aslides and/or outlines. It outputs HTML, CSS and Javascript files, also you can use this HTTP Server for your convinience.
+
+== INSTALL:
+
+  gem instal mdslide
 
 == REQUIREMENTS:
 
 * ArgsParser 
 * RedCarpet
 
-	gem install ArgsParser
-	gem install redcarpet
+  gem install ArgsParser
+  gem install redcarpet
 
 == USAGE:
 
 Firstly, You need to write Markdown file.
 
-	Presentation Tilte
-	==========
-	your name  
-	2012/04/24
-	
-	////
-	
-	First Slide
-	------------
-	
-	* For split slide, you must write more than 2 slashes
-	* and others, you have to read [Markdown Syntax References](http://daringfireball.net/projects/markdown/syntax)
+  Presentation Tilte
+  ==========
+  your name  
+  2012/04/24
+  
+  ////
+  
+  First Slide
+  ------------
+  
+  * For split slide, you must write more than 2 slashes
+  * and others, you have to read [Markdown Syntax References](http://daringfireball.net/projects/markdown/syntax)
 
 If you want to get HTML, CSS and Javascript files for your web server, use -o option
 
-	$ mdslide -i foo.md -o bar.md
+  $ mdslide -i foo.md -o bar.md
 
 Viewing only, Web server feature is useful
 
-	$ mdslide -i foo.md -s
-	# you can see your slides at http://localhost:3000/
-	# and if you want in other theme, go http://localhost:3000/black
+  $ mdslide -i foo.md -s
+  # you can see your slides at http://localhost:3000/
+  # and if you want in other theme, go http://localhost:3000/black
 
 Others can be shown with --help option
 
-	$ mdslide --help
+  $ mdslide --help
 
 == LICENSE:
 
