@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <% @stylesheets.each do |filename| %>
+    <link type="text/css" rel="stylesheet" href="./css/<%= filename %>" />
+    <% end %>
+    <% @scripts.each do |filename| %>
+    <script type="text/javascript" src="./js/<%= filename %>"></script>
+    <% end %>
+  </head>
+  <body>
+    <div id="slides">
+      <%= yield %>
+    </div>
+  <div id="toolbox">
+    <div class="forSlides">
+      <a href="#" class="prev">&lt;&lt;</a>
+      <a href="#outline">View Outline</a>
+      <a href="#" class="next">&gt;&gt;</a>
+    </div>
+    <div class="forOutline">
+      <a href="#" class="toSlide">View Slide</a>
+    </div>
+  </body>
+</html>
