@@ -5,13 +5,6 @@
 == DESCRIPTION:
 
 Mdslide is an slide generator for presentation based on Markdown (RedCarpet). It can convert extended Markdown file to HTML it can show as aslides and/or outlines. It outputs HTML, CSS and Javascript files, also you can use this HTTP Server for your convinience.
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
-
-== SYNOPSIS:
-
-  FIX (code sample of usage)
 
 == REQUIREMENTS:
 
@@ -56,7 +49,7 @@ Others can be shown with --help option
 
 (The MIT License)
 
-Copyright (c) 2012 FIXME full name
+Copyright (c) 2012 Allu Yamane
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
