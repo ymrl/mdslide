@@ -97,6 +97,7 @@ jQuery ->
       t.css
         width : ''
         height: ''
+        top:    0
       t.css TRANSFORM,''
       sw = t.width()
       sh = t.height()
@@ -104,7 +105,8 @@ jQuery ->
         zoom = h/sh
         t.css 'width', sw / zoom
         t.css TRANSFORM, "scale(#{zoom})"
-
+      else if sh < h
+        t.css 'top', h/2 - sh/2
   ).trigger('resize')
 
   createOutline()

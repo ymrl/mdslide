@@ -11,7 +11,7 @@ a:hover {  text-decoration:underline; }
 	opacity: 0;
 	-moz-opacity: 0;
 	filter: alpha(opacity=0);
-  -webkit-transition-duration:0.5s;
+  -webkit-transition-duration:0.2s;
 }
 .slide.current {
 	opacity: 1;

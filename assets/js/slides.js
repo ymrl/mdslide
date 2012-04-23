@@ -115,7 +115,8 @@
         t = jQuery(this);
         t.css({
           width: '',
-          height: ''
+          height: '',
+          top: 0
         });
         t.css(TRANSFORM, '');
         sw = t.width();
@@ -124,6 +125,8 @@
           zoom = h / sh;
           t.css('width', sw / zoom);
           return t.css(TRANSFORM, "scale(" + zoom + ")");
+        } else if (sh < h) {
+          return t.css('top', h / 2 - sh / 2);
         }
       });
     }).trigger('resize');
