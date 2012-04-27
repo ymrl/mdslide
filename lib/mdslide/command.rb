@@ -13,6 +13,7 @@ module Mdslide
     parser.bind(:server, :s, "Start HTTP Server")
     parser.bind(:bind,   :b, "Bind IP Address for HTTP Server")
     parser.bind(:port,   :p, "Setting Port Number for HTTP Server")
+    parser.bind(:title, :T, "set Presentaion tiltle")
     parser.comment('without-assets-dir', "Does not create js/css directory")
     parser.comment('without-css-dir',    "Does not create css directory")
     parser.comment('without-js-dir',     "Does not create js directory")
@@ -32,6 +33,10 @@ module Mdslide
     end
     
     creator = Creator.new
+    if parser.params[:title]
+      creator.title = parser.params[:title]
+    end
+
 
     default_theme = 'white'
     if parser.params[:theme]
