@@ -1,7 +1,7 @@
 (function() {
 
   jQuery(function() {
-    var CURRENT, HASH, KEYTARGET, PREFIX, TRANSFORM, checkURL, createOutline, hideOutline, keyAction, showOutline, showSlide;
+    var CURRENT, HASH, KEYTARGET, PREFIX, TRANSFORM, checkURL, createOutline, hideOutline, keyAction, showOutline, showSlide, touchAgents;
     CURRENT = 0;
     PREFIX = (jQuery.browser.webkit && '-webkit-') || (jQuery.browser.mozilla && '-moz-') || (jQuery.browser.msie && '-ms-') || (jQuery.browser.opera && '-o-') || '';
     TRANSFORM = PREFIX + 'transform';
@@ -133,9 +133,12 @@
     createOutline();
     checkURL(true);
     setInterval(checkURL, 50);
-    return setTimeout(function() {
-      return jQuery('#toolbox').addClass('shown');
-    }, 3000);
+    touchAgents = ['iPhone', 'iPad', 'Android'];
+    if (!navigator.userAgent.match(new RegExp(touchAgents.join('|')))) {
+      return setTimeout(function() {
+        return jQuery('#toolbox').addClass('shown');
+      }, 3000);
+    }
   });
 
 }).call(this);

@@ -112,6 +112,10 @@ jQuery ->
   createOutline()
   checkURL(true)
   setInterval(checkURL,50)
-  setTimeout(
-    -> jQuery('#toolbox').addClass('shown')
-  ,3000)
+
+  touchAgents = ['iPhone','iPad','Android']
+  
+  if !navigator.userAgent.match(new RegExp(touchAgents.join('|')))
+    setTimeout(
+      -> jQuery('#toolbox').addClass('shown')
+    ,3000)
