@@ -33,11 +33,8 @@ module Mdslide
     
     creator = Creator.new
 
-    default_theme = 'white'
-    if parser.params[:theme]
-      default_theme =  parser.params[:theme]
-      creator.set_theme default_theme
-    end
+    default_theme = parser.params[:theme] || 'white'
+    creator.set_theme default_theme
 
     file = File.expand_path(parser.params[:input])
 
