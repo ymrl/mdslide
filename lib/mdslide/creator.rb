@@ -10,12 +10,14 @@ module Mdslide
 
   class Creator
     attr_reader :stylesheets,:scripts
+    attr_accessor :title
     def initialize
       @stylesheets = ['base.css']
       @scripts = ['jquery.min.js','slides.js']
       @converter =  Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
       @page_template = File.open(File.dirname(__FILE__)  + '/../../templates/page.html.erb','r'){|r| erb = ERB.new(r.read)}
       @slide_template = File.open(File.dirname(__FILE__) + '/../../templates/slide.html.erb','r'){|r| erb = ERB.new(r.read)}
+      @title = 'Slides converted by Mdslide'
     end
 
     def set_theme name
