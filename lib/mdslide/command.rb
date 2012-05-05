@@ -9,7 +9,7 @@ module Mdslide
     parser.bind(:help,   :h, "Shows Help")
     parser.bind(:output, :o, "Output")
     parser.bind(:input,  :i, "Input")
-    parser.bind(:theme,  :t, "theme")
+    parser.bind(:theme,  :t, "theme","white")
     parser.bind(:server, :s, "Start HTTP Server")
     parser.bind(:bind,   :b, "Bind IP Address for HTTP Server")
     parser.bind(:port,   :p, "Setting Port Number for HTTP Server")
@@ -38,7 +38,7 @@ module Mdslide
     end
 
 
-    default_theme = parser.params[:theme] || 'white'
+    default_theme = parser.params[:theme]
     creator.set_theme default_theme
 
     file = File.expand_path(parser.params[:input])
