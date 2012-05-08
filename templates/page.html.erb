@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <% @stylesheets.each do |filename| %>
+    <% (@stylesheets + @theme_stylesheets).each do |filename| %>
     <link type="text/css" rel="stylesheet" href="./css/<%= filename %>" />
     <% end %>
-    <% @scripts.each do |filename| %>
+    <% (@scripts + @theme_scripts).each do |filename| %>
     <script type="text/javascript" src="./js/<%= filename %>"></script>
     <% end %>
     <title><%= @title %></title>

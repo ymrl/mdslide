@@ -44,7 +44,7 @@ module Mdslide
     file = File.expand_path(parser.params[:input])
 
     input = nil
-    File.open(file,'r'){|r| input = r.read }
+    File.open(file,'r'){|r| input = r.read.force_encoding(Encoding::UTF_8) }
     creator.convert_markdown(input)
 
     server = parser.params[:server]
@@ -56,7 +56,7 @@ module Mdslide
 
     if server
       require 'webrick'
-      srv = WEBrick::HTTPServer.new({ :DocumentRoot => './',
+      srv = WEBrick::HTTPServer.new({ :DocumentRoot => File.dirname(file),
                                       :BindAddress => (parser.params[:bind] or '127.0.0.1'),
                                       :DoNotReverseLookup => true,
                                       :Port => (parser.params[:port] or 3000)})
@@ -69,7 +69,7 @@ module Mdslide
         end
         creator.set_theme theme
         res['Content-Type'] = 'text/html'
-        File.open(file,'r'){|r| input = r.read }
+        File.open(file,'r'){|r| input = r.read.force_encoding(Encoding::UTF_8) }
         res.body = creator.convert_markdown(input)
       end
       Signal.trap(:INT){ srv.shutdown }

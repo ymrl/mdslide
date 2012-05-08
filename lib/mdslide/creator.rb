@@ -3,9 +3,9 @@ require 'erb'
 
 module Mdslide
     Themes = {
-      'black' => 'black.css',
-      'white' => 'white.css',
-      'takahashi' => 'takahashi.css',
+      :black     => {:css => ['black.css'],},
+      :white     => {:css => ['white.css'],},
+      :takahashi => {:css => ['takahashi.css'],},
     }
 
   class Creator
@@ -14,6 +14,9 @@ module Mdslide
     def initialize
       @stylesheets = ['base.css']
       @scripts = ['jquery.min.js','slides.js']
+      @theme_scripts     = []
+      @theme_stylesheets = []
+
       @converter =  Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
       @page_template = File.open(File.dirname(__FILE__)  + '/../../templates/page.html.erb','r'){|r| erb = ERB.new(r.read)}
       @slide_template = File.open(File.dirname(__FILE__) + '/../../templates/slide.html.erb','r'){|r| erb = ERB.new(r.read)}
@@ -21,10 +24,10 @@ module Mdslide
     end
 
     def set_theme name
-      theme = Themes[name]
-      @stylesheets.pop while @stylesheets.length > 1
+      theme = Themes[name.to_sym]
       if theme
-        @stylesheets.push theme
+        theme[:css] && @theme_stylesheets.replace(theme[:css])
+        theme[:js]  && @theme_scripts.replace(theme[:js])
       end
     end
 
