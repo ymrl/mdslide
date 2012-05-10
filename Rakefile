@@ -15,7 +15,7 @@ $hoe = Hoe.spec 'mdslide' do
   self.post_install_message = 'PostInstall.txt' # TODO remove if post-install message not required
   self.rubyforge_name       = self.name # TODO this is default value
   self.extra_deps         = [
-      ['ArgsParser','>= 1.0.0'],
+      ['args_parser','>= 0.0.1'],
       ['redcarpet', '>= 2.1.1'],
   ]
 end

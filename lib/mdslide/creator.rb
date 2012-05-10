@@ -9,7 +9,7 @@ module Mdslide
     }
 
   class Creator
-    attr_reader :stylesheets,:scripts
+    attr_reader :stylesheets,:scripts,:theme_stylesheets,:theme_scripts
     attr_accessor :title
     def initialize
       @stylesheets = ['base.css']
