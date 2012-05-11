@@ -1,6 +1,8 @@
 Mdslide Introduction
 =====================
 
+[Japanese Version is Here](ja.html)
+
 ymrl (https://github.com/ymrl/)
 
 ////////////////////
@@ -23,24 +25,24 @@ How to Install
         gem install mdslide
 
 * And write some markdown texts...
-  * When you want to go next page, insert 2+ slash
+  * When you want to go next page, insert a line only 2+ slash
 //////////
 
 Example
 -------------
     First Slide
-		==========
-		My Name
-		/////////
-		Second Slide
-		///////////
-		* List
-		* List
-		* List
-		///////
-		Third Slide
-		------------
-		> quote
+  	==========
+  	My Name
+  	/////////
+  	Second Slide
+  	///////////
+  	* List
+  	* List
+  	* List
+  	///////
+  	Third Slide
+  	------------
+  	> quote
 
 /////////
 
@@ -54,9 +56,9 @@ Generation
 WEBrick Server
 --------------
 * You can preview your slideshow without any file-output
-* run `mdslide` command without -o option
+* run `mdslide` command without `-o` option
 
         mdslide -i foobar.md
 
-  and go to http://localhost:3000/
+* and go to http://localhost:3000/
 

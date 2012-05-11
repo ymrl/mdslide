@@ -1,54 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Mdslide by ymrl</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+    <meta charset="UTF-8" />
+    
+    <link type="text/css" rel="stylesheet" href="./css/base.css" />
+    
+    <link type="text/css" rel="stylesheet" href="./css/white.css" />
+    
+    
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="./js/slides.js"></script>
+    
+    <title>Slides converted by Mdslide</title>
   </head>
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/ymrl/mdslide">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/ymrl/mdslide/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/ymrl/mdslide/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
+    <div id="slides">
+      <div class="slide">
+  <h1>Mdslide Introduction</h1>
 
-    <div class="wrapper">
+<p><a href="ja.html">Japanese Version is Here</a></p>
 
-      <section>
-        <div id="title">
-          <h1>Mdslide</h1>
-          <p>Markdown Slide Generator</p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/ymrl">ymrl</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
-        </div>
+<p>ymrl (<a href="https://github.com/ymrl/">https://github.com/ymrl/</a>)</p>
 
-        <h1>Mdslide</h1>
+</div>
+<div class="slide">
+  <h2>What is Mdslide?</h2>
 
-<p>Mdslide is an slide generator for presentation based on Markdown (RedCarpet). It can convert extended Markdown file to HTML it can show as aslides and/or outlines. It outputs HTML, CSS and Javascript files, also you can use this HTTP Server for your convinience.</p>
+<ul>
+<li>Generates HTML-based slideshow from Markdown
 
-<h2>INSTALL:</h2>
+<ul>
+<li>Easy to edit contents</li>
+<li>Easy to share with your web server</li>
+<li>Anybody can see slideshow on Web browser</li>
+</ul></li>
+<li>This page is generated with Mdslide, of course!</li>
+</ul>
 
-<p>gem instal mdslide</p>
-      </section>
+</div>
+<div class="slide">
+  <h2>How to Install</h2>
+
+<ul>
+<li><p>You can install with RubyGems</p>
+
+<pre><code>gem install mdslide
+</code></pre></li>
+<li><p>And write some markdown texts...</p>
+
+<ul>
+<li>When you want to go next page, insert a line only 2+ slash</li>
+</ul></li>
+</ul>
+
+</div>
+<div class="slide">
+  <h2>Example</h2>
+
+<pre><code>First Slide
+==========
+My Name
+/////////
+Second Slide
+///////////
+* List
+* List
+* List
+///////
+Third Slide
+------------
+&gt; quote
+</code></pre>
+
+</div>
+<div class="slide">
+  <h2>Generation</h2>
+
+<pre><code>mdslide -i foobar.md -o foobar.html
+</code></pre>
+
+</div>
+<div class="slide">
+  <h2>WEBrick Server</h2>
+
+<ul>
+<li>You can preview your slideshow without any file-output</li>
+<li><p>run <code>mdslide</code> command without <code>-o</code> option</p>
+
+<pre><code>mdslide -i foobar.md
+</code></pre></li>
+<li><p>and go to http://localhost:3000/</p></li>
+</ul>
+
+</div>
 
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-    
+  <div id="toolbox">
+    <div class="forSlides">
+      <a href="#" class="prev">&lt;&lt;</a>
+      <a href="#outline">View Outline</a>
+      <a href="#" class="next">&gt;&gt;</a>
+    </div>
+    <div class="forOutline">
+      <a href="#" class="toSlide">View Slide</a>
+    </div>
   </body>
 </html>
