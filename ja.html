@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    
+    <link type="text/css" rel="stylesheet" href="./css/base.css" />
+    
+    <link type="text/css" rel="stylesheet" href="./css/white.css" />
+    
+    
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="./js/slides.js"></script>
+    
+    <title>Slides converted by Mdslide</title>
+  </head>
+  <body>
+    <div id="slides">
+      <div class="slide">
+  <h1>Mdslideの紹介</h1>
+
+<p><a href="index.html">English Version is Here</a></p>
+
+<p>ymrl (<a href="https://github.com/ymrl/">https://github.com/ymrl/</a>)</p>
+
+</div>
+<div class="slide">
+  <h2>Mdslideとは？</h2>
+
+<ul>
+<li>MarkdownテキストからHTMLベースのプレゼン用スライドを作成します
+
+<ul>
+<li>Markdownなので編集が容易です</li>
+<li>Webサーバーに簡単にアップロードできます</li>
+<li>ブラウザさえあれば誰でも見ることができます</li>
+</ul></li>
+<li>このページも当然Mdslideで作られています</li>
+</ul>
+
+</div>
+<div class="slide">
+  <h2>インストール方法</h2>
+
+<ul>
+<li><p>RubyGemsでインストールできます</p>
+
+<pre><code>gem install mdslide
+</code></pre></li>
+<li><p>あとはMarkdownを書くだけです</p>
+
+<ul>
+<li>改ページにはスラッシュ (/) を2つ以上並べた行を使います</li>
+</ul></li>
+</ul>
+
+</div>
+<div class="slide">
+  <h2>例</h2>
+
+<pre><code>最初のスライド
+==========
+名前
+/////////
+2番目のスライド
+///////////
+* リスト
+* リスト
+* リスト
+///////
+3番目のスライド
+------------
+&gt; 引用
+</code></pre>
+
+</div>
+<div class="slide">
+  <h2>スライドの作成</h2>
+
+<pre><code>mdslide -i foobar.md -o foobar.html
+</code></pre>
+
+</div>
+<div class="slide">
+  <h2>WEBrick サーバー</h2>
+
+<ul>
+<li>ファイルを出力させずに内蔵のWebサーバーでスライドをプレビューできます</li>
+<li><p><code>mdslide</code> コマンドを <code>-o</code> オプションなしで実行してください</p>
+
+<pre><code>mdslide -i foobar.md
+</code></pre></li>
+<li><p>あとは http://localhost:3000/ にアクセスするだけです</p></li>
+</ul>
+
+</div>
+
+    </div>
+  <div id="toolbox">
+    <div class="forSlides">
+      <a href="#" class="prev">&lt;&lt;</a>
+      <a href="#outline">View Outline</a>
+      <a href="#" class="next">&gt;&gt;</a>
+    </div>
+    <div class="forOutline">
+      <a href="#" class="toSlide">View Slide</a>
+    </div>
+  </body>
+</html>
