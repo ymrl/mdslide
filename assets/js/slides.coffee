@@ -6,7 +6,7 @@ jQuery ->
   HASH = null
 
   keyAction = (e)->
-    if([74,76,40,39,32,13].indexOf(e.keyCode) >= 0)
+    if([74,76,40,39,32].indexOf(e.keyCode) >= 0)
       showSlide ++CURRENT
       location.hash = CURRENT
       e.preventDefault()
@@ -88,7 +88,7 @@ jQuery ->
     else
       hideOutline()
 
-  jQuery(window).bind('resize',(e)->
+  resize =->
     wdw = jQuery(window)
     h = wdw.outerHeight()
     w = wdw.outerWidth()
@@ -107,7 +107,10 @@ jQuery ->
         t.css TRANSFORM, "scale(#{zoom})"
       else if sh < h
         t.css 'top', h/2 - sh/2
-  ).trigger('resize')
+
+  jQuery(window).bind('resize',resize)
+  resize()
+  jQuery('img').bind('load',resize)
 
   createOutline()
   checkURL(true)

@@ -1,14 +1,14 @@
 (function() {
 
   jQuery(function() {
-    var CURRENT, HASH, KEYTARGET, PREFIX, TRANSFORM, checkURL, createOutline, hideOutline, keyAction, showOutline, showSlide, touchAgents;
+    var CURRENT, HASH, KEYTARGET, PREFIX, TRANSFORM, checkURL, createOutline, hideOutline, keyAction, resize, showOutline, showSlide, touchAgents;
     CURRENT = 0;
     PREFIX = (jQuery.browser.webkit && '-webkit-') || (jQuery.browser.mozilla && '-moz-') || (jQuery.browser.msie && '-ms-') || (jQuery.browser.opera && '-o-') || '';
     TRANSFORM = PREFIX + 'transform';
     KEYTARGET = jQuery.browser.msie ? document.body : window;
     HASH = null;
     keyAction = function(e) {
-      if ([74, 76, 40, 39, 32, 13].indexOf(e.keyCode) >= 0) {
+      if ([74, 76, 40, 39, 32].indexOf(e.keyCode) >= 0) {
         showSlide(++CURRENT);
         location.hash = CURRENT;
         return e.preventDefault();
@@ -105,7 +105,7 @@
         return hideOutline();
       }
     };
-    jQuery(window).bind('resize', function(e) {
+    resize = function() {
       var h, w, wdw;
       wdw = jQuery(window);
       h = wdw.outerHeight();
@@ -129,7 +129,10 @@
           return t.css('top', h / 2 - sh / 2);
         }
       });
-    }).trigger('resize');
+    };
+    jQuery(window).bind('resize', resize);
+    resize();
+    jQuery('img').bind('load', resize);
     createOutline();
     checkURL(true);
     setInterval(checkURL, 50);
