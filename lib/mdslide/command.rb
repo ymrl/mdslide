@@ -20,6 +20,7 @@ module Mdslide
 
   def Mdslide.command
     parser = ArgsParser.parse ARGV do
+      arg :version,"Shows Mdslide Version", :alias => :v
       arg :help,   "Shows Help",      :alias => :h
       arg :input,  "Input File",      :alias => :i
       arg :theme,  "Theme",           :alias => :t, :default => 'white'
@@ -31,8 +32,10 @@ module Mdslide
       arg :'without-css-dir',    "Does not create css directory"
       arg :'without-js-dir',     "Does not create js directory"
     end
-
-    if parser.has_option? :help or !parser.has_param?(:input)
+    if parser.has_option? :version
+      puts VERSION
+      return 0
+    elsif parser.has_option? :help or !parser.has_param?(:input)
       puts "mdslide [options] -i <Input File>"
       puts parser.help
       return 0
