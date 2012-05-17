@@ -1,4 +1,5 @@
 #coding:UTF-8
+require 'rubygems'
 require 'args_parser'
 require 'mdslide'
 require 'yaml'
@@ -62,7 +63,7 @@ module Mdslide
 
       creator.set_theme default_theme
       input = nil
-      File.open(file_path,'r'){|r| input = r.read.force_encoding(Encoding::UTF_8) }
+      File.open(file_path,'r'){|r| input = r.read }
       File.open(output_path,'w'){|f| f.puts creator.convert_markdown(input)}
 
       output_js  = !parser[:"without-assets-dir"] and !parser[:"without-js-dir"]
@@ -110,7 +111,7 @@ module Mdslide
           m = req.path.match(/\/(.+)/)
           theme = (m && m[1]) || default_theme
           creator.set_theme theme
-          File.open(file_path,'r'){|r| input = r.read.force_encoding(Encoding::UTF_8) }
+          File.open(file_path,'r'){|r| input = r.read }
 
           res.body = creator.convert_markdown(input)
           res['Content-Type'] = 'text/html'

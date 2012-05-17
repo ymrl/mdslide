@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'kramdown'
 require 'erb'
 
@@ -28,6 +29,7 @@ module Mdslide
         theme[:css] && @theme_stylesheets.replace(theme[:css])
         theme[:js]  && @theme_scripts.replace(theme[:js])
       end
+      return theme
     end
 
     def get_binding
