@@ -13,11 +13,14 @@ Mdslide is an slide generator for presentation based on Markdown (RedCarpet). It
 
 == REQUIREMENTS:
 
-* ArgsParser 
-* RedCarpet
+* Ruby + Rubygems
 
-  gem install ArgsParser
-  gem install redcarpet
+== DIPENDENCIES:
+
+* args_parser
+* kramdown
+
+Those will be installed with mdslide through rubygems, automatically
 
 == USAGE:
 
@@ -41,9 +44,9 @@ If you want to get HTML, CSS and Javascript files for your web server, use -o op
 
   $ mdslide -i foo.md -o bar.md
 
-Viewing only, Web server feature is useful
+Viewing only, Web server feature is useful. Without -o option, starting web server on port 3000 on your PC and you can preview on http://localhost:3000/
 
-  $ mdslide -i foo.md -s
+  $ mdslide -i foo.md 
   # you can see your slides at http://localhost:3000/
   # and if you want in other theme, go http://localhost:3000/black
 
