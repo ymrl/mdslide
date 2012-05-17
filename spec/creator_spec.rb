@@ -28,5 +28,6 @@ describe "Mdslide" do
       slide.should be_true
       slide.should be_kind_of(String)
     end
+
   end
 end

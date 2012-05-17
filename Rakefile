@@ -16,13 +16,13 @@ $hoe = Hoe.spec 'mdslide' do
   self.rubyforge_name       = self.name # TODO this is default value
   self.extra_deps         = [
       ['args_parser','>= 0.0.1'],
-      ['redcarpet', '>= 2.1.1'],
+      ['kramdown', '>= 0.13.6'],
   ]
 end
 
-require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
+require 'newgem/tasks'
 
 # TODO - want other tests/tasks run by default? Add them to the list
 # remove_task :default
-# task :default => [:spec, :features]
+task :default => [:spec, :features]
