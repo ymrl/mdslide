@@ -72,7 +72,8 @@ module Mdslide
       
       if output_js
         js_path = output_dir_path+'/js'
-        Dir::mkdir(js_path) unless Dir.exist?(js_path)
+        #Dir::mkdir(js_path) unless Dir.exist?(js_path)
+        Dir::mkdir(js_path) unless File.exist?(js_path) and File.directory?(js_path)
 
         (creator.scripts + creator.theme_scripts).each do |e| 
           src_dir = Mdslide.find_path(e,src_dirs.map{|m| "#{m}/js/"})
@@ -81,7 +82,8 @@ module Mdslide
       end
       if output_css
         css_path = output_dir_path+'/css'
-        Dir::mkdir(css_path) unless Dir.exist?(css_path)
+        #Dir::mkdir(css_path) unless Dir.exist?(css_path)
+        Dir::mkdir(css_path) unless File.exist?(css_path) and File.directory?(css_path)
 
         (creator.stylesheets + creator.theme_stylesheets).each do |e| 
           src_dir = Mdslide.find_path(e,src_dirs.map{|m| "#{m}/css/"})
