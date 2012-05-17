@@ -1,4 +1,4 @@
-require 'redcarpet/compat'
+require 'kramdown'
 require 'erb'
 
 module Mdslide
@@ -17,7 +17,6 @@ module Mdslide
       @theme_scripts     = []
       @theme_stylesheets = []
 
-      @converter =  Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
       @page_template = File.open(File.dirname(__FILE__)  + '/../../templates/page.html.erb','r'){|r| erb = ERB.new(r.read)}
       @slide_template = File.open(File.dirname(__FILE__) + '/../../templates/slide.html.erb','r'){|r| erb = ERB.new(r.read)}
       @title = 'Slides converted by Mdslide'
@@ -38,7 +37,7 @@ module Mdslide
     def convert_markdown md
       body = ''
       md.split(/^\/\/+$/).map do |slide|
-        body += @slide_template.result(self.get_binding{@converter.render(slide)})
+        body += @slide_template.result(self.get_binding{Kramdown::Document.new(slide).to_html})
       end
       @page_template.result(self.get_binding{body})
     end
