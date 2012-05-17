@@ -124,10 +124,10 @@
         if (sh > h) {
           zoom = h / sh;
           t.css('width', sw / zoom);
-          return t.css(TRANSFORM, "scale(" + zoom + ")");
-        } else if (sh < h) {
-          return t.css('top', h / 2 - sh / 2);
+          t.css(TRANSFORM, "scale(" + zoom + ")");
+          sh = t.height() * zoom;
         }
+        return t.css('top', h / 2 - sh / 2);
       });
     };
     jQuery(window).bind('resize', resize);

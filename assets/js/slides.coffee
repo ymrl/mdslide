@@ -105,8 +105,9 @@ jQuery ->
         zoom = h/sh
         t.css 'width', sw / zoom
         t.css TRANSFORM, "scale(#{zoom})"
-      else if sh < h
-        t.css 'top', h/2 - sh/2
+        sh = t.height() * zoom
+      #else if sh < h
+      t.css 'top', h/2 - sh/2
 
   jQuery(window).bind('resize',resize)
   resize()
