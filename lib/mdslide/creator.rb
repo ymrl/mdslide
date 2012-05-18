@@ -1,13 +1,10 @@
 require 'rubygems'
 require 'kramdown'
 require 'erb'
+require 'mdslide/themes'
+require 'mdslide/config'
 
 module Mdslide
-    Themes = {
-      :black     => {:css => ['black.css'],},
-      :white     => {:css => ['white.css'],},
-      :takahashi => {:css => ['takahashi.css'],},
-    }
 
   class Creator
     attr_reader :stylesheets,:scripts,:theme_stylesheets,:theme_scripts

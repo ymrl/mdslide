@@ -8,7 +8,6 @@ require 'fileutils'
 module Mdslide
 
   ASSETS_DIR = File.expand_path(File.dirname(__FILE__) + '/../../assets')
-  CONFIG_DIR = File.expand_path('~/.mdslide')
 
   def Mdslide.find_path path, dir_list
     dir_list.each do |dir_path|
@@ -24,10 +23,10 @@ module Mdslide
       arg :version,"Shows Mdslide Version", :alias => :v
       arg :help,   "Shows Help",      :alias => :h
       arg :input,  "Input File",      :alias => :i
-      arg :theme,  "Theme",           :alias => :t, :default => 'white'
-      arg :bind,   "Bind IP Address", :alias => :b, :default => '127.0.0.1'
-      arg :port,   "Port Number",     :alias => :p, :default => '3000'
-      arg :title,  "Title",           :alias => :T, :default => 'Slides converted by Mdslide'
+      arg :theme,  "Theme",           :alias => :t, :default => Defaults[:theme]
+      arg :bind,   "Bind IP Address", :alias => :b, :default => Defaults[:bind ]
+      arg :port,   "Port Number",     :alias => :p, :default => Defaults[:port ]
+      arg :title,  "Title",           :alias => :T, :default => Defaults[:title]
       arg :output, "Output File",     :alias => :o
       arg :'without-assets-dir', "Does not create js/css directory"
       arg :'without-css-dir',    "Does not create css directory"
@@ -42,12 +41,14 @@ module Mdslide
       return 0
     end
 
-    config_path = File.expand_path(CONFIG_DIR + '/config.yaml')
-    my_config = nil
-    if File.exist? config_path
-      my_config = YAML.load_file(config_path)
-      Themes.merge! my_config[:themes]
-    end
+    #config_path = File.expand_path(CONFIG_DIR + '/config.yaml')
+    #my_config = nil
+    #if File.exist? config_path
+    #  my_config = YAML.load_file(config_path)
+    #  Themes.merge! my_config[:themes]
+    #end
+
+    p Themes
 
 
     creator = Creator.new
@@ -110,6 +111,7 @@ module Mdslide
         end
 
         if !root_path
+          Mdslide.load_config
           m = req.path.match(/\/(.+)/)
           theme = (m && m[1]) || default_theme
           creator.set_theme theme

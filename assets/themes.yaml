@@ -1,0 +1,22 @@
+---
+:white:
+  :css:
+  - color-white.css
+  - transition-hide-show.css
+:black:
+  :css:
+  - color-black.css
+  - transition-hide-show.css
+:black-crossfade:
+  :css:
+  - color-black.css
+  - transition-crossfade.css
+:white-crossfade:
+  :css:
+  - color-white.css
+  - transition-crossfade.css
+:takahashi:
+  :css:
+  - color-white.css
+  - position-takahashi.css
+  - transition-hide-show.css

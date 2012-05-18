@@ -1,0 +1,6 @@
+.slide {
+	display:none;
+}
+.slide.current {
+	display:block;
+}

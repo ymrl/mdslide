@@ -44,7 +44,10 @@
       jQuery('#outline').show();
       jQuery('#slides').hide();
       jQuery('#toolbox .forOutline').show();
-      return jQuery('#toolbox .forSlides').hide();
+      jQuery('#toolbox .forSlides').hide();
+      return jQuery('body').css({
+        overflow: 'visible'
+      });
     };
     hideOutline = function() {
       jQuery(KEYTARGET).unbind('keyup', keyAction);
@@ -52,7 +55,10 @@
       jQuery('#outline').hide();
       jQuery('#slides').show();
       jQuery('#toolbox .forOutline').hide();
-      return jQuery('#toolbox .forSlides').show();
+      jQuery('#toolbox .forSlides').show();
+      return jQuery('body').css({
+        overflow: 'hidden'
+      });
     };
     showSlide = function(num) {
       var slides;

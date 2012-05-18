@@ -38,6 +38,7 @@ jQuery ->
     jQuery('#slides').hide()
     jQuery('#toolbox .forOutline').show()
     jQuery('#toolbox .forSlides').hide()
+    jQuery('body').css overflow:'visible'
 
   hideOutline = ()->
     jQuery(KEYTARGET).unbind('keyup',keyAction)
@@ -46,6 +47,7 @@ jQuery ->
     jQuery('#slides').show()
     jQuery('#toolbox .forOutline').hide()
     jQuery('#toolbox .forSlides').show()
+    jQuery('body').css overflow:'hidden'
 
   showSlide = (num)->
     slides = jQuery('.slide')
