@@ -54,6 +54,25 @@ Others can be shown with --help option
 
   $ mdslide --help
 
+=== CONFIGURATIONS
+`mdslide` command reads ~/.mdslide/config.yaml if it exists. You can describe your own settings and themes in YAML format.
+
+  :themes:
+    :my-theme:
+      :css:
+        - my-theme.css
+        - color-black.css
+        - transition-crossfade.css
+      :js:
+        - my-theme.js
+  :config:
+    :bind: 0.0.0.0
+    :title: "My Slide"
+    :port: 10080
+    :theme: white-crossfade
+
+CSS/JS files included in customized themes will be loaded in  this order: relative path from the Markdown file -> relative path from your configuration directory (~/.mdslide/) -> assets directory of mdslide library (default). If you want to create your own theme, locate files on ~/.mdslide/.
+
 == LICENSE:
 
 (The MIT License)
