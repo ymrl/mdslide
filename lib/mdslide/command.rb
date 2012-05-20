@@ -48,9 +48,6 @@ module Mdslide
     #  Themes.merge! my_config[:themes]
     #end
 
-    p Themes
-
-
     creator = Creator.new
     creator.title = parser[:title]
     default_theme = parser[:theme]

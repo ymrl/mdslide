@@ -13,8 +13,8 @@ module Mdslide
     my_config = nil
     if File.exist? config_path
       my_config = YAML.load_file(config_path)
-      Themes.merge!   my_config[:themes]
-      Defaults.merge! my_config[:config]
+      Themes.merge!   my_config[:themes] if my_config[:themes]
+      Defaults.merge! my_config[:config] if my_config[:config]
     end
   end
 
