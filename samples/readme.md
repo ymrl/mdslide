@@ -1,6 +1,6 @@
 スライド作成システムMdslide
 ==============
-[ymrl](https://twitter.com/ymrl)
+@ymrl
 
 //////
 
