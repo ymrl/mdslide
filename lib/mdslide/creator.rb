@@ -36,6 +36,9 @@ module Mdslide
     def convert_markdown md
       body = ''
       md.split(/^\/\/+$/).map do |slide|
+        if slide =~ /(^|\s)(https?:\/\/[^\s]+)([$|\s])/
+          slide.gsub!(/(^|\s)(https?:\/\/[^\s]+)([$|\s])/, "#{$1}[#{$2}](#{$2})#{$3}")
+        end
         body += @slide_template.result(self.get_binding{Kramdown::Document.new(slide).to_html})
       end
       @page_template.result(self.get_binding{body})
