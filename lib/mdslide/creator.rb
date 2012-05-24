@@ -37,7 +37,7 @@ module Mdslide
       body = ''
       md.split(/^\/\/+$/).map do |slide|
         if slide =~ /(^|\s)(https?:\/\/[^\s]+)($|\s)/
-          slide.gsub!(/(^|\s)(https?:\/\/[^\s]+)($|\s)/, "#{$1}[#{$2}](#{$2})#{$3}")
+          slide.gsub!(/(^|\s)(https?:\/\/[^\s]+)($|\s)/){"#{$1}[#{$2}](#{$2})#{$3}"}
         end
         if slide =~ /(^|\s)@([a-zA-Z0-9_]+)($|\s)/
           slide.gsub!(/(^|\s)@([a-zA-Z0-9_]+)($|\s)/, "#{$1}[@#{$2}](https://twitter.com/#{$2})#{$3}")
