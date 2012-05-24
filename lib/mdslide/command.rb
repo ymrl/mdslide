@@ -23,10 +23,10 @@ module Mdslide
       arg :version,"Shows Mdslide Version", :alias => :v
       arg :help,   "Shows Help",      :alias => :h
       arg :input,  "Input File",      :alias => :i
-      arg :theme,  "Theme",           :alias => :t, :default => Defaults[:theme]
-      arg :bind,   "Bind IP Address", :alias => :b, :default => Defaults[:bind ]
-      arg :port,   "Port Number",     :alias => :p, :default => Defaults[:port ]
-      arg :title,  "Title",           :alias => :T, :default => Defaults[:title]
+      arg :theme,  "Theme",           :alias => :t, :default => Mdslide::Defaults[:theme]
+      arg :bind,   "Bind IP Address", :alias => :b, :default => Mdslide::Defaults[:bind ]
+      arg :port,   "Port Number",     :alias => :p, :default => Mdslide::Defaults[:port ]
+      arg :title,  "Title",           :alias => :T, :default => Mdslide::Defaults[:title]
       arg :output, "Output File",     :alias => :o
       arg :'without-assets-dir', "Does not create js/css directory"
       arg :'without-css-dir',    "Does not create css directory"
