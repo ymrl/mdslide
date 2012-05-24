@@ -28,6 +28,14 @@ describe "Mdslide" do
       slide.should be_true
       slide.should be_kind_of(String)
     end
-
+    it "can make url-link automatically" do
+      slide = @creator.convert_markdown("hogehoge\nhttp://example.com/test1\naaa https://example.com/test2/ bbb")
+      slide.match(%r|<a[^>]+href="http://example.com/test1"[^>]*>http://example.com/test1</a>|).should be_true
+      slide.match(%r|<a[^>]+href="https://example.com/test2/"[^>]*>https://example.com/test2/</a>|).should be_true
+    end
+    it "can make link to twitter accounts" do
+      slide = @creator.convert_markdown("@ymrl")
+      slide.match(%r|<a[^>]+href="https://twitter.com/ymrl"[^>]*>@ymrl</a>|).should be_true
+    end
   end
 end
