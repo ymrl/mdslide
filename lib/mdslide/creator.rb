@@ -35,7 +35,7 @@ module Mdslide
 
     def convert_markdown md
       body = ''
-      md.gsub("\r",'').split(/^\/\/+$/).map do |slide|
+      md.gsub(/\r\n?/, "\n").split(/^\/\/+$/).map do |slide|
         if slide =~ /(^|\s)(https?:\/\/[^\s]+)($|\s)/
           slide.gsub!(/(^|\s)(https?:\/\/[^\s]+)($|\s)/){"#{$1}[#{$2}](#{$2})#{$3}"}
         end
