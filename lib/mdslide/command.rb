@@ -6,20 +6,10 @@ require 'yaml'
 require 'fileutils'
 
 module Mdslide
-
   ASSETS_DIR = File.expand_path(File.dirname(__FILE__) + '/../../assets')
 
-  def Mdslide.find_path path, dir_list
-    dir_list.each do |dir_path|
-      if File.exist?(dir_path + path)
-        return dir_path
-      end
-    end
-    return nil
-  end
-
-  def Mdslide.command
-    parser = ArgsParser.parse ARGV do
+  def Mdslide.command argv=ARGV
+    parser = ArgsParser.parse argv do
       arg :version,"Shows Mdslide Version", :alias => :v
       arg :help,   "Shows Help",      :alias => :h
       arg :input,  "Input File",      :alias => :i
@@ -40,13 +30,6 @@ module Mdslide
       puts parser.help
       return 0
     end
-
-    #config_path = File.expand_path(CONFIG_DIR + '/config.yaml')
-    #my_config = nil
-    #if File.exist? config_path
-    #  my_config = YAML.load_file(config_path)
-    #  Themes.merge! my_config[:themes]
-    #end
 
     creator = Creator.new
     creator.title = parser[:title]
@@ -70,7 +53,6 @@ module Mdslide
       
       if output_js
         js_path = output_dir_path+'/js'
-        #Dir::mkdir(js_path) unless Dir.exist?(js_path)
         Dir::mkdir(js_path) unless File.exist?(js_path) and File.directory?(js_path)
 
         (creator.scripts + creator.theme_scripts).each do |e| 
@@ -80,7 +62,6 @@ module Mdslide
       end
       if output_css
         css_path = output_dir_path+'/css'
-        #Dir::mkdir(css_path) unless Dir.exist?(css_path)
         Dir::mkdir(css_path) unless File.exist?(css_path) and File.directory?(css_path)
 
         (creator.stylesheets + creator.theme_stylesheets).each do |e| 
