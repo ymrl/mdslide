@@ -33,6 +33,7 @@ jQuery ->
     return div
 
   showOutline = ()->
+    createOutline()
     jQuery(KEYTARGET).unbind('keyup',keyAction)
     jQuery('#outline').show()
     jQuery('#slides').hide()
@@ -43,10 +44,10 @@ jQuery ->
   hideOutline = ()->
     jQuery(KEYTARGET).unbind('keyup',keyAction)
     jQuery(KEYTARGET).keyup keyAction
-    jQuery('#outline').hide()
     jQuery('#slides').show()
     jQuery('#toolbox .forOutline').hide()
     jQuery('#toolbox .forSlides').show()
+    jQuery('#outline').remove()
     jQuery('body').css overflow:'hidden'
 
   showSlide = (num)->
@@ -111,9 +112,29 @@ jQuery ->
       #else if sh < h
       t.css 'top', h/2 - sh/2
 
-  jQuery(window).bind('resize',resize)
-  resize()
-  jQuery('img').bind('load',resize)
+  jQuery('#resizeToggle').change (e)->
+    t = $(this)
+    if t.attr('checked')
+      console.log true
+      jQuery(window).bind('resize',resize)
+      resize()
+      jQuery('img').bind('load',resize)
+      jQuery('#resizeLabel').html("&#9745; Auto Resizing : ON&nbsp;")
+      jQuery('body').css('overflow','hidden')
+    else
+      console.log false
+      jQuery(window).unbind('resize',resize)
+      jQuery('img' ).unbind('load'  ,resize)
+      jQuery('.slide').each ()->
+        t = jQuery(this)
+        t.css TRANSFORM,''
+        t.css
+          width : ''
+          height: ''
+          top:    0
+      jQuery('#resizeLabel').html("&#9744; Auto Resizing : OFF")
+      jQuery('body').css('overflow','visible')
+  jQuery('#resizeToggle').change()
 
   createOutline()
   checkURL(true)

@@ -89,3 +89,6 @@ body {
 #toolbox a:hover {
 	text-decoration:none;
 }
+#toolbox input {
+	display:none;
+}
