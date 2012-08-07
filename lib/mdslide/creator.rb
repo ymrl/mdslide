@@ -36,7 +36,9 @@ module Mdslide
     def convert_markdown md
       body = ''
       md.gsub(/\r\n?/, "\n").split(/^\/\/+$/).map do |slide|
-        if slide =~ /(^|\s)(https?:\/\/[^\s]+)($|\s)/
+        if slide =~ /(^|\s)(https?:\/\/[^\s]+)\.(jpe?g|gif|png|bmp)($|\s)/i
+          slide.gsub!(/(^|\s)(https?:\/\/[^\s]+)\.(jpe?g|gif|png|bmp)($|\s)/i){"#{$1}![#{$2}.#{$3}](#{$2}.#{$3})#{$4}"}
+        elsif slide =~ /(^|\s)(https?:\/\/[^\s]+)($|\s)/
           slide.gsub!(/(^|\s)(https?:\/\/[^\s]+)($|\s)/){"#{$1}[#{$2}](#{$2})#{$3}"}
         end
         if slide =~ /(^|\s)@([a-zA-Z0-9_]+)($|\s)/
