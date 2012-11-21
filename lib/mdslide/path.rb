@@ -26,12 +26,12 @@ module Mdslide
 
   def Mdslide.find_js_path file,current = nil
     dirs = Mdslide.get_directories(current).map{|e| "#{e}/js/"}
-    return Mdslide.find_file file
+    return Mdslide.find_file file,dirs
   end
 
   def Mdslide.find_css_path file,current = nil
     dirs = Mdslide.get_directories(current).map{|e| "#{e}/css/"}
-    return Mdslide.find_file file
+    return Mdslide.find_file file,dirs
   end
 
 end
