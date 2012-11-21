@@ -119,7 +119,7 @@ jQuery ->
       jQuery(window).bind('resize',resize)
       resize()
       jQuery('img').bind('load',resize)
-      jQuery('#resizeLabel').html("&#9745; Auto Resizing : ON&nbsp;")
+      jQuery('#resizeLabel').html("&#9745; Adjustment : ON&nbsp;")
       jQuery('body').css('overflow','hidden')
     else
       console.log false
@@ -132,7 +132,7 @@ jQuery ->
           width : ''
           height: ''
           top:    0
-      jQuery('#resizeLabel').html("&#9744; Auto Resizing : OFF")
+      jQuery('#resizeLabel').html("&#9744; Adjustment : OFF")
       jQuery('body').css('overflow','visible')
   jQuery('#resizeToggle').change()
 
