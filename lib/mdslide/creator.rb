@@ -1,19 +1,8 @@
 require 'rubygems'
 require 'kramdown'
 require 'erb'
-require 'mdslide/themes'
-require 'mdslide/config'
 
 module Mdslide
-
-  def Mdslide.find_path path, dir_list
-    dir_list.each do |dir_path|
-      if File.exist?(dir_path + path)
-        return dir_path
-      end
-    end
-    return nil
-  end
 
   class Creator
     attr_reader :stylesheets,:scripts,:theme_stylesheets,:theme_scripts

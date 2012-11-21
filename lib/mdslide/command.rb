@@ -54,10 +54,11 @@ module Mdslide
       if output_js
         js_path = output_dir_path+'/js'
         Dir::mkdir(js_path) unless File.exist?(js_path) and File.directory?(js_path)
-
         (creator.scripts + creator.theme_scripts).each do |e| 
-          src_dir = Mdslide.find_path(e,src_dirs.map{|m| "#{m}/js/"})
-          FileUtils.cp("#{src_dir}/#{e}",js_path) if src_dir
+          src_file = Mdslide.find_js_path(e)
+          FileUtils.cp("#{src_file}",js_path)
+          #src_dir = Mdslide.find_path(e,src_dirs.map{|m| "#{m}/js/"})
+          #FileUtils.cp("#{src_dir}/#{e}",js_path) if src_dir
         end
       end
       if output_css
@@ -65,8 +66,10 @@ module Mdslide
         Dir::mkdir(css_path) unless File.exist?(css_path) and File.directory?(css_path)
 
         (creator.stylesheets + creator.theme_stylesheets).each do |e| 
-          src_dir = Mdslide.find_path(e,src_dirs.map{|m| "#{m}/css/"})
-          FileUtils.cp("#{src_dir}/#{e}",css_path) if src_dir
+          src_file = Mdslide.find_css_path(e)
+          FileUtils.cp("#{src_file}",css_path)
+          #src_dir = Mdslide.find_path(e,src_dirs.map{|m| "#{m}/css/"})
+          #FileUtils.cp("#{src_dir}/#{e}",css_path) if src_dir
         end
       end
 
