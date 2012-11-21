@@ -10,7 +10,7 @@ First Slide
 * This is list
 * This is second element
   * this is nested list
-        * this is second nested element
+    * this is second nested element
 * And more...
 
 ////
@@ -21,7 +21,7 @@ Second Slide
 1. hogehoge
 2. fugafuga
    * mogemoge
-         * piyopiyo
+   * piyopiyo
 ////
 
 

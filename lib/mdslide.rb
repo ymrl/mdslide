@@ -7,5 +7,5 @@ require 'mdslide/path'
 require 'mdslide/creator'
 
 module Mdslide
-  VERSION = '3.1.0'
+  VERSION = '3.2.0'
 end
